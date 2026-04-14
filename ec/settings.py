@@ -115,13 +115,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 STATIC_URL = 'static/'
-MEDIA_URL='/meadia/'
-MEDIA_ROOT=BASE_DIR/'meadia'
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR/'media'
 LOGIN_REDIRECT_URL='/profile/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND="django.core.mail.backends.console.EmailBackend"
-RAZOR_KEY_ID="your razorPay key"
-RAZOR_KEY_SECRET="your razorPay key Secret"
+RAZOR_KEY_ID="rzp_test_S9azRrAt2O1cyU"
+RAZOR_KEY_SECRET="ZabTgcODVNuONVRAQM5dMVc4"

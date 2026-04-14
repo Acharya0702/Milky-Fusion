@@ -15,8 +15,12 @@ urlpatterns=[
     path('contact/',views.contact,name="contact"),
     path('search/',views.search,name="search"),
     path('profile/',views.ProfileView.as_view(),name='profile'),
+    path('upload-profile-image/', views.upload_profile_image, name='upload_profile_image'),
     path('address/',views.address,name='address'),
+    path('get-addresses/', views.get_user_addresses, name='get_addresses'),
     path('updateaddress/<int:pk>',views.UpdateAddress.as_view(),name="update-address"),
+    path('delete-address/', views.delete_address, name='delete_address'),
+    path('set-default-address/', views.set_default_address, name='set_default_address'),
     path('add-to-cart/',views.add_to_cart,name="add-to-cart"),
     path('cart/',views.show_cart,name="showcart"),
     path('wishlist/',views.show_wishlist,name="showwishlist"),
@@ -42,6 +46,6 @@ urlpatterns=[
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header="Manguli Dairy"
-admin.site.site_title="manguli"
-admin.site.site_index_title="Welcome to Manguli Dairy Shop"
+admin.site.site_header="Milky Fusion"
+admin.site.site_title="Milky Fusion"
+admin.site.site_index_title="Welcome to Milky Fusion"

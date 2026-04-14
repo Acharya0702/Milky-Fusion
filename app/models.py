@@ -72,6 +72,7 @@ class Product(models.Model):
 class Customer(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     name=models.CharField(max_length=200)
+    profile_image = models.ImageField(upload_to='profile_images/', blank=True, null=True)
     locality=models.CharField(max_length=200)
     city=models.CharField(max_length=200)
     mobile=models.IntegerField(default=0)
@@ -85,7 +86,7 @@ class Cart(models.Model):
     quantity=models.PositiveIntegerField(default=1)
     @property
     def total_cost(self):
-        return self.quanitty*self.product.discount_price
+        return self.quantity*self.product.discount_price
 class Payment(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     amount=models.FloatField()

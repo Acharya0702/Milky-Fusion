@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm,UsernameField,PasswordChangeForm,SetPasswordForm,PasswordResetForm
 from django.contrib.auth.models import User
 from app.models import Customer
+from app.models import STATE_CHOICES
 class CustomerRegistrationForm(UserCreationForm):
     username=forms.CharField(widget=forms.TextInput(attrs={'autofocus':'True','class':'form-control'}))
     email=forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
@@ -24,13 +25,14 @@ class MySetPasswordForm(SetPasswordForm):
     new_password2=forms.CharField(label='confirm password',widget=forms.PasswordInput(attrs={'autocomplete':'current-password','class':'form-control'}))
 class CustomerProfileForm(forms.ModelForm):
     class Meta:
-        model=Customer
-        fields=['name','locality','city','mobile','state','email']
-        widgets={
-            'name':forms.TextInput(attrs={'class':'form-control'}),
-            'locality':forms.TextInput(attrs={'class':'form-control'}),
-            'city':forms.TextInput(attrs={'class':'form-control'}),
-            'mobile':forms.NumberInput(attrs={'class':'form-control'}),
-            'state':forms.Select(attrs={'class':'form-control'}),
-            'email':forms.EmailInput(attrs={'class':'form-control'}),
+        model = Customer
+        fields = ['name', 'locality', 'city', 'mobile', 'state', 'email', 'profile_image']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'locality': forms.TextInput(attrs={'class': 'form-control'}),
+            'city': forms.TextInput(attrs={'class': 'form-control'}),
+            'mobile': forms.NumberInput(attrs={'class': 'form-control'}),
+            'state': forms.Select(attrs={'class': 'form-control'}, choices=STATE_CHOICES),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'profile_image': forms.FileInput(attrs={'class': 'form-control'}),
         }
